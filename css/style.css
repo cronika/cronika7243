@@ -1,0 +1,374 @@
+Basic CSS Reset and Initial Settings
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+#wrapper {
+  background-color: #f3f3f3;
+}
+
+.inner {
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+/* header */
+
+#header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 480px;
+  background: url();
+  background: cover;background: url(../images/header/header.jpg) center center;
+  background-size: cover;
+  box-shadow: 0 2px 4px #bebebe;
+}
+
+#header .logo {
+  display: block;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#header .logo-name {
+  font-family: cursive; 
+  font-size: 50px;
+  line-height: 1;
+  color: #f3f3f3;
+}
+
+#header .logo-title {
+  font-family: 'test', cursive;
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 1.5rem;
+  color: #f3f3f3;
+}
+
+/* nav */
+
+#tnav {
+  padding: 5px;
+}
+
+#tnav.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #f3f3f3;
+  box-shadow: 0 2px 4px #bebebe;
+}
+
+#gnav:last-child {
+  margin-right: 0;
+}
+
+#tnav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style-type: none;
+
+}
+
+#tnav li {
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 1px;
+}
+
+#tnav li a {
+  color: #333;
+  letter-spacing: -0.01em;
+  margin: 0 20px;
+}
+
+/* section */
+
+.section .inner {
+  padding: 80px 10px 10px 10px;
+}
+
+.section .section-block {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section .section-title {
+  font-family: sans-serif;
+  letter-spacing: -0.01em;
+  display: inline-block;
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 10;
+  color: #333;
+}
+
+/* profile */
+
+#profile .two-column-wrapper {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px p;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+#profile .two-column-image {
+  width: 33%;
+}
+
+#profile .two-column-image img {
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+#profile .two-column-desc {
+  width: 62%;
+}
+
+@media (max-width:768px) {
+  #profile .two-column-wrapper {
+    width: 90%;
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  #profile .two-column-image {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  #profile .two-column-image img {
+    width: 150px;
+    height: 150px;
+  }
+
+  #profile .two-column-desc {
+    width: 100%;
+  }
+
+  @media (max-width: 480px) {
+    #profile .two-column-image img {
+      width: 120px;
+      height: 120px;
+    }
+  }
+}
+
+/* card reuse */
+:root {
+  --card-width: 32%;
+  --card-margin-bottom: 50px;
+  --card-image-height: 245px;
+  --title-font-size: 1rem;
+  --info-font-size: 0.75rem;
+  --url-font-size: 0.625rem;
+}
+
+#product .card-wrapper {
+  padding: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#product .card {
+  width: var(--card-width);
+  margin-bottom: var(--card-margin-bottom);
+}
+
+#product .card-image {
+  display: block;
+  margin-bottom: 8px;
+  height: var(--card-image-height);
+  object-fit: cover;
+  width: 100%;
+}
+
+#product .card-cap {
+  text-align: center;
+}
+
+#product .card-cap-title {
+  font-size: var(--info-font-size);
+  font-weight: bold;
+}
+
+#product .card-cap-info  {
+  font-size: var(--info-font-size);
+}
+
+#product .card-cap-url  {
+  font-size: var(--info-font-size);
+}
+
+/* media */
+
+@media (max-width: 768px) {
+  :root {
+    --card-width: 48%;
+  }
+}
+@media (max-width: 480px) {
+  :root {
+    --card-width: 100%;
+    --card-image-height: auto;
+  }
+  #product .card-wrapper {
+    justify-content: center;
+  }
+}
+
+/* contact */
+#contact .contact-list {
+  padding: 20px 0;
+}
+
+#contact .contact-list {
+  text-align: center;
+}
+
+#contact .text-email a {
+  color: #333;
+
+}
+
+#footer {
+  padding: 10px;
+  height: 100px;
+  background-color:#333;
+}
+
+#footer:last-child {
+  margin-right: 0;
+}
+
+#footer .footer-link ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style-type: none;
+
+}
+
+#footer .footer-link li {
+  font-weight: bold;
+  font-size: 1.125rem;
+  padding: 0.20px;
+}
+
+#footer .footer-link li a {
+  color: #f3f3f3;
+  letter-spacing: -0.01em;
+  margin:  0 20px;
+}
+
+#footer .footer-top-link {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style-type: none;
+  padding-top: 10px;
+}
+#footer .footer-top-link a {
+  color: #f3f3f3;
+  font-weight: bold;
+}
+
+
